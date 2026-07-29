@@ -27,7 +27,6 @@
             direction: rtl;
         }
 
-        /* ---------- البطاقة الرئيسية ---------- */
         .main-card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(16px) saturate(180%);
@@ -46,7 +45,6 @@
             box-shadow: 0 40px 80px -24px rgba(0, 20, 40, 0.35);
         }
 
-        /* ---------- الرأس ---------- */
         .header-icon {
             font-size: 3.8rem;
             color: #2a5cff;
@@ -78,7 +76,6 @@
             margin-top: -0.3rem;
         }
 
-        /* ---------- حقل البحث ---------- */
         .search-wrapper {
             position: relative;
             margin-top: 1.8rem;
@@ -147,7 +144,6 @@
             transform: scale(0.98);
         }
 
-        /* ---------- بطاقة النتيجة ---------- */
         .result-card {
             margin-top: 2.5rem;
             background: #ffffff;
@@ -181,7 +177,6 @@
             color: #1a2a6c;
         }
 
-        /* الشارات */
         .badge-pass, .badge-fail {
             font-size: 0.95rem;
             font-weight: 700;
@@ -250,7 +245,6 @@
             margin-top: 0.2rem;
         }
 
-        /* ---------- التذييل ---------- */
         .footer-note {
             margin-top: 2.2rem;
             font-size: 0.85rem;
@@ -264,7 +258,6 @@
             font-size: 1rem;
         }
 
-        /* ---------- رسالة الخطأ ---------- */
         .alert-custom {
             border-radius: 60px;
             padding: 0.9rem 1.8rem;
@@ -278,7 +271,6 @@
             gap: 10px;
         }
 
-        /* ---------- استجابة للشاشات الصغيرة ---------- */
         @media (max-width: 576px) {
             .main-card {
                 padding: 1.8rem 1.2rem;
@@ -307,7 +299,6 @@
 <body>
 
 <div class="main-card">
-    <!-- الرأس -->
     <div class="text-center">
         <div class="header-icon">
             <i class="bi bi-mortarboard-fill"></i>
@@ -316,14 +307,12 @@
         <p class="sub-headline">أدخل رقم الجلوس أو الاسم للاستعلام</p>
     </div>
 
-    <!-- نموذج البحث -->
     <form method="POST">
         <div class="search-wrapper">
             <input
                 type="text"
                 class="search-input"
                 name="query"
-                placeholder="مثال: 2001970 أو أحمد"
                 value="{{ request.form.get('query', '') }}"
                 autofocus
             />
@@ -334,7 +323,6 @@
         </button>
     </form>
 
-    <!-- عرض الخطأ -->
     {% if error %}
         <div class="alert-custom">
             <i class="bi bi-exclamation-triangle-fill"></i>
@@ -342,7 +330,6 @@
         </div>
     {% endif %}
 
-    <!-- عرض النتيجة -->
     {% if student %}
         <div class="result-card">
             <div class="d-flex justify-content-between align-items-start flex-wrap">
@@ -361,7 +348,6 @@
                 </div>
             </div>
 
-            <!-- الإحصائيات -->
             <div class="result-stats">
                 <div class="stat-item">
                     <div class="stat-label">المجموع الكلي</div>
@@ -377,7 +363,6 @@
                 </div>
             </div>
 
-            <!-- وصف الحالة -->
             <div class="text-center">
                 <span class="case-badge">
                     {{ student['student_case_desc'] }}
@@ -386,7 +371,6 @@
         </div>
     {% endif %}
 
-    <!-- التذييل -->
     <div class="footer-note">
         <i class="bi bi-shield-lock-fill"></i> بيانات آمنة • للاستعلام الشخصي فقط
     </div>
